@@ -1,0 +1,18 @@
+[
+  {
+    "id": "COMP1405-A",
+    "courseId": "COMP1405",
+    "section": "A",
+    "term": "summer-2023",
+    "type": "lecture",
+    "startDate": "2023-05-01",
+    "endDate": "2023-09-01",
+    "days": ["Monday", "Wednesday", "Friday"],
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "location": "Loeb 101",
+    "staffId": "john-smith",
+    "physicality": "in-person",
+    "registrationAdditions": ["tutorial"]
+  }
+]

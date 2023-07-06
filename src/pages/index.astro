@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Schedule } from "../apps";
+import { Registry } from "../registry";
+import type { Department, Event } from "../registry";
+
+const metadata = {
+  title: "Hello World",
+  description: "coming soon",
+  url: "",
+  image: "/",
+};
+
+const departments = new Registry().loadDepartments();
+let events = new Registry().loadEvents("COMP1405", "summer-2023");
+---
+
+<Layout {metadata}>
+  <h1>Hello World</h1>
+  <Schedule client:load />
+  <div>
+    <select name="department" id="department">
+      {
+        departments.map((department: Department) => (
+          <option value={department.id}>{department.id}</option>
+        ))
+      }
+    </select>
+  </div>
+  <div>
+    <div>
+      <select name="event" id="event">
+        {
+          events.map((event: Event) => (
+            <option value={event.id}>{event.id}</option>
+          ))
+        }
+      </select>
+    </div>
+  </div>
+</Layout>
