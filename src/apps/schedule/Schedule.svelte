@@ -1,1 +1,5 @@
-<hi>Hello World</hi>
+<script>
+  import { Calendar } from "./components";
+</script>
+
+<Calendar />
