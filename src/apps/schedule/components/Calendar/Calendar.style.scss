@@ -1,14 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap");
+
+.calendar-container {
+  border: solid 0.025rem #e6e3e3;
+  margin: 5rem;
+  min-width: auto;
+  margin-top: 0;
+  padding: 3rem;
+  background-color: #faf9f6;
+  border-radius: 1rem;
+}
+
 .calendar {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1px;
+}
+
+.time-label {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #1b1c1c;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.times-container {
+  margin-top: 35px;
+}
+
+.day-label {
+  font-family: "Montserrat", sans-serif;
+  color: #72767b;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  height: 1rem;
 }
 
 .calendar-day {
   display: grid;
   grid-template-rows: repeat(24, 1fr);
+  grid-gap: 1px;
+}
+
+.outline {
+  outline: solid 0.009px #e6e3e3;
 }
 
 .calendar-time-blocks {
-  border: solid 0.025rem black;
   text-align: center;
+  height: 1.4rem;
+  overflow: hidden;
 }
