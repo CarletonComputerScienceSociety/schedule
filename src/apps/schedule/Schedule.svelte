@@ -1,5 +1,6 @@
 <script>
   import { Calendar } from "./components";
+  export let events;
 </script>
 
-<Calendar />
+<Calendar events={events}/>

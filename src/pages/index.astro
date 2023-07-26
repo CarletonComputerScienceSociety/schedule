@@ -17,7 +17,7 @@ let events = new Registry().loadEvents("COMP1405", "summer-2023");
 
 <Layout {metadata}>
   <h1>Schedule</h1>
-  <Schedule client:load />
+  <Schedule client:load events={events}/>
   <br />
   <div>
     <select name="department" id="department">
