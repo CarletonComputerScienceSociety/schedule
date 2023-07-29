@@ -7,7 +7,7 @@
   let militaryTime = false;
   export let events;
   const weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  console.log(events[0].course)
+  console.log(events[0])
 </script>
 
 <div class="calendar-container">
