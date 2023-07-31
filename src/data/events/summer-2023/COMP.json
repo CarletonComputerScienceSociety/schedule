@@ -14,8 +14,8 @@
     "staffId": "john-smith",
     "physicality": "in-person",
     "registrationAdditions": ["tutorial"]
-  }
-  ,{
+  },
+  {
     "id": "COMP1406-B",
     "courseId": "COMP1406",
     "section": "B",

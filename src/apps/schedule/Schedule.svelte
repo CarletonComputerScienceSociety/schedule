@@ -3,4 +3,4 @@
   export let events;
 </script>
 
-<Calendar events={events}/>
+<Calendar {events} />

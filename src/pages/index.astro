@@ -12,12 +12,12 @@ const metadata = {
 };
 
 const departments = new Registry().loadDepartments();
-let events = new Registry().loadEvents("COMP1405", "summer-2023");
+let events = new Registry().loadEvents(["COMP1405", "COMP1406"], "summer-2023");
 ---
 
 <Layout {metadata}>
   <h1>Schedule</h1>
-  <Schedule client:load events={events}/>
+  <Schedule client:load events={events} />
   <br />
   <div>
     <select name="department" id="department">

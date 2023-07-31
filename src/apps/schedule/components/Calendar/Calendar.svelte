@@ -7,7 +7,7 @@
   let militaryTime = false;
   export let events;
   const weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  console.log(events[0])
+  console.log(events);
 </script>
 
 <div class="calendar-container">
@@ -43,9 +43,10 @@
 
 <div class="buttons-container">
   <button class="button-style" on:click={() => (militaryTime = !militaryTime)}
-    >⏰ Toggle Military Time</button>  
-  <button class="button-style thing" on:click={() => (militaryTime = !militaryTime)}
-    >🗓 Get Schedule Link</button>  
+    >⏰ Toggle Military Time</button
+  >
+  <button
+    class="button-style thing"
+    on:click={() => (militaryTime = !militaryTime)}>🗓 Get Schedule Link</button
+  >
 </div>
-
-
