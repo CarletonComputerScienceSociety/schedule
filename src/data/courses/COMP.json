@@ -4,5 +4,11 @@
     "departmentId": "COMP",
     "code": "1405",
     "title": "Introduction to Computer Science"
+  },
+  {
+    "id": "COMP1406",
+    "departmentId": "COMP",
+    "code": "1406",
+    "title": "Introduction to Computer Science II"
   }
 ]

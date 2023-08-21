@@ -8,10 +8,26 @@
     "startDate": "2023-05-01",
     "endDate": "2023-09-01",
     "days": ["Monday", "Wednesday", "Friday"],
-    "startTime": "10:00",
+    "startTime": "08:00",
     "endTime": "11:00",
     "location": "Loeb 101",
     "staffId": "john-smith",
+    "physicality": "in-person",
+    "registrationAdditions": ["tutorial"]
+  },
+  {
+    "id": "COMP1406-B",
+    "courseId": "COMP1406",
+    "section": "B",
+    "term": "summer-2023",
+    "type": "lecture",
+    "startDate": "2023-05-01",
+    "endDate": "2023-09-01",
+    "days": ["Tuesday", "Wednesday", "Thursday"],
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "location": "Loeb 101",
+    "staffId": "john-doe",
     "physicality": "in-person",
     "registrationAdditions": ["tutorial"]
   }

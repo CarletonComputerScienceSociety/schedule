@@ -16,7 +16,13 @@ export class Registry {
     });
   };
 
-  loadEvents = (courseId: string, term: string) => {
+  loadEvents = (courseIds: string[], term: string) => {
+    return courseIds.flatMap((courseId: string) => {
+      return this.loadCourseEvents(courseId, term);
+    });
+  };
+
+  loadCourseEvents = (courseId: string, term: string) => {
     const departmentId = courseId.slice(0, 4);
 
     let data = this.getData(`./src/data/events/${term}/${departmentId}.json`);

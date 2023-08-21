@@ -49,4 +49,9 @@ export class Event {
     this.physicality = physicality;
     this.registrationAdditions = registrationAdditions;
   }
+
+  displayName = () => {
+    return `${this.course.department.id} ${this.course.code}`
+  }
+
 }
