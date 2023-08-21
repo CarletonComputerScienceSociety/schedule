@@ -7,30 +7,70 @@
   let militaryTime = false;
   export let events;
   const dayTitles = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  let schedule = [[],[],[],[],[],[],[]]
+  const times = []
+  let i = 0
+
+
+  // the while loop creates the times for the keys on each day and appends the string of the time
+  // to the "times" list, line 23 is for skipping "22:30" since it's not on the calendar.
+  while (i < 15) {
+    let time_string = "";
+    if (i < 2) {
+      time_string += "0"
+    }
+    time_string += i+START_TIME + ":00"
+    times.push(time_string)
+    if(i < 14) {
+    time_string = time_string.replace('00', '30')
+    times.push(time_string)
+    }
+    i += 1
+  }
+
+  let schedule = {
+  }
+
+  const isInThisTime = (pTime, event) => {
+    return event.startTime <= pTime && event.endTime > pTime
+  }
+
   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-  // This loop iterates over each day of the week and then checks each event to see if it falls within the day
-  // if it does then it appends the event to the day list in the schedule array.
-  for(let i = 0; i < dayNames.length; i++) {
-    // iterates through each object
-    for (const key of Object.keys(events)) {
-      // checks if the event is on the day
-    if (events[key].days.includes(dayNames[i])) {
-      // console.log(events[key].id + " is on " + dayNames[i])
-      // adds the event to the day in the schedule array
-      schedule[i].push(events[key])
+  for(const day of dayNames) {
+    if(schedule[day] === undefined) {
+      schedule[day] = {}
+    }
+    for(const time of times) {
+      if(schedule[day][time] === undefined) {
+        schedule[day][time] = []
+      }
     }
   }
+  for(const event of events) {
+    for(const day of event.days) {
+      for(const time of times) {
+        if(isInThisTime(time, event)) {
+          schedule[day][time].push(event)
+        }
+      }
+    }
   }
 
-  // this for loop iterates through each list within the array of schedule
-  // and sort each item in the day by order of events (by start time)
-  for(let i = 0; i < schedule.length; i++) {
-    // checks if the day has at least 2 events (requires sorting)
-    if(schedule[i].length > 1) {
-      schedule[i].sort((a, b) => a.startTime - b.startTime);
+
+  const isEventInBlock = (day, time) => {
+    const dayName = dayNames[day-1]
+    const timeName = times[time]
+    return schedule[dayName][timeName].length > 0
+  }
+
+  const courseName = (day, time) => {
+    const dayName = dayNames[day-1]
+    const timeName = times[time]
+    const event = schedule[dayName][timeName][0]
+    if(event.startTime !== timeName) {
+      return ""
     }
+    return event.displayName()
   }
 
 
@@ -48,7 +88,11 @@
         <div class="calendar-day">
           {#each Array(BLOCKS) as _, j}
             {#if i !== 0}
-              <div class="calendar-time-blocks outline" />
+              {#if isEventInBlock(i, j)}
+                <div class="calendar-time-blocks course-block">{courseName(i, j)}</div>
+              {:else}
+                <div class="calendar-time-blocks outline" />
+              {/if}
             {:else if j % 2 == 0}
               <div class="calendar-time-blocks">
                 {#if militaryTime === false && j > PAST12}
