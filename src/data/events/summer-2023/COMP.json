@@ -24,7 +24,7 @@
     "startDate": "2023-05-01",
     "endDate": "2023-09-01",
     "days": ["Tuesday", "Wednesday", "Thursday"],
-    "startTime": "11",
+    "startTime": "11:00",
     "endTime": "12:00",
     "location": "Loeb 101",
     "staffId": "john-doe",
